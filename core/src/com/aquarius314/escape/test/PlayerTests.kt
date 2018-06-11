@@ -15,7 +15,7 @@ class PlayerTests {
         player = setupPlayer()
     }
 
-    fun setupPlayer() : Player = Player(x, y)
+    private fun setupPlayer() : Player = Player(x, y)
 
     @Test
     fun testPlayerPosition() {
