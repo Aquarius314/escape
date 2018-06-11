@@ -7,8 +7,8 @@ import org.junit.Test
 class PlayerTests {
 
     private var player: Player = setupPlayer()
-    private val x: Int = 111
-    private val y: Int = 222
+    private val x = 111f
+    private val y = 222f
 
     @Before
     fun setup() {
@@ -19,17 +19,35 @@ class PlayerTests {
 
     @Test
     fun testPlayerPosition() {
-        assert(player.x == x)
-        assert(player.y == y)
+        assert(player.x == x && player.y == y)
+        fun testCoordinate(getter: () -> Float, setter: (_: Float) -> Unit) {
+            val newCoordinate = getter() + 1
+            setter(newCoordinate)
+            assert(getter() == newCoordinate)
+        }
         testCoordinate({player.x}, {v -> player.x = v})
         testCoordinate({player.y}, {v -> player.y = v})
     }
 
-    private fun testCoordinate(getter: () -> Int, setter: (_: Int) -> Unit) {
-        val newCoordinate = getter() + 1
-        setter(newCoordinate)
-        assert(getter() == newCoordinate)
+    @Test
+    fun testPlayerMove() {
+        val oldX = player.x
+        val oldY = player.y
+        val x = 2f
+        val y = 4f
+        player.move(x, y)
+        assert(player.x == oldX + x && player.y == oldY + y)
     }
+
+    @Test
+    fun testPlayerMoveTo() {
+        val x = 123f
+        val y = 234f
+        player.moveTo(x, y)
+        assert(player.x == x && player.y == y)
+    }
+
+
 
 }
 
