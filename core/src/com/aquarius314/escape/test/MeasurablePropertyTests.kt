@@ -1,16 +1,16 @@
 package com.aquarius314.escape.test
 
-import com.aquarius314.escape.main.player.PlayerProperty
+import com.aquarius314.escape.main.player.MeasurableProperty
 import org.junit.Test
 
-class PlayerPropertyTests {
+class MeasurablePropertyTests {
 
     @Test
-    fun testPlayerProperty() {
+    fun testMeasurableProperty() {
         val min = -100f
         val max = 100f
         val value = 43f
-        val property = PlayerProperty(min, max)
+        val property = MeasurableProperty(min, max)
         property.value = value
         assert(property.value == value)
         property.value += 20

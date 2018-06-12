@@ -5,7 +5,12 @@ import com.badlogic.gdx.InputProcessor
 
 class GameInputProcessor(var game: GdxGame) : InputProcessor {
 
-    private val keyPressedMap: HashMap<Int, Boolean> = hashMapOf()
+    private val keyPressedMap: HashMap<Int, Boolean> = hashMapOf(
+            Pair(KeyCodes.W.value, false),
+            Pair(KeyCodes.A.value, false),
+            Pair(KeyCodes.S.value, false),
+            Pair(KeyCodes.D.value, false)
+    )
 
     fun isKeyPressed(key: Int) : Boolean {
         return keyPressedMap[key] ?: false

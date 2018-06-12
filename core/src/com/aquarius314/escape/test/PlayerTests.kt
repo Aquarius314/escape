@@ -6,16 +6,16 @@ import org.junit.Test
 
 class PlayerTests {
 
-    private var player: Player = setupPlayer()
     private val x = 111f
     private val y = 222f
+    private var player: Player = setupPlayer(x, y)
 
     @Before
     fun setup() {
-        player = setupPlayer()
+        player = setupPlayer(x, y)
     }
 
-    private fun setupPlayer() : Player = Player(x, y)
+    private fun setupPlayer(x: Float, y: Float) : Player = Player(x, y)
 
     @Test
     fun testPlayerPosition() {
@@ -47,7 +47,19 @@ class PlayerTests {
         assert(player.x == x && player.y == y)
     }
 
+    @Test
+    fun testCollisions() {
+        val maxDistance = (Math.sqrt(2.0)*30).toFloat()
+        val collidingPlayer = setupPlayer((x + maxDistance), (y + maxDistance))
+        val notCollidingPlayer = setupPlayer((x + maxDistance + 1), (y + maxDistance + 1))
+        assert(player.collidesWith(collidingPlayer))
+        assert(!player.collidesWith(notCollidingPlayer))
+    }
 
+    @Test
+    fun testPlayerBullets() {
+
+    }
 
 }
 
