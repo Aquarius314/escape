@@ -1,4 +1,4 @@
-package com.aquarius314.escape.main.player
+package com.aquarius314.escape.main.engine.logic
 
 open class MeasurableProperty constructor(var min: Float, var max: Float, initialValue: Float = min) {
 

@@ -1,8 +1,9 @@
 package com.aquarius314.escape.main
 
-import com.aquarius314.escape.main.graphics.Renderer
+import com.aquarius314.escape.main.engine.graphics.Renderer
+import com.aquarius314.escape.main.engine.resources.SoundManager
 import com.aquarius314.escape.main.player.Player
-import com.aquarius314.escape.main.ui.GameInputProcessor
+import com.aquarius314.escape.main.engine.ui.GameInputProcessor
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 
@@ -10,14 +11,16 @@ class GdxGame : ApplicationAdapter() {
 
     var renderer: Renderer? = null
     var player = Player()
-    val gameInputProcessor = GameInputProcessor(this)
+    val inputProcessor = MainInputProcessor(this)
+    val soundManager = SoundManager()
 
     override fun create() {
+        soundManager.loadAssets(ResourcesLoader.soundFiles)
         renderer = Renderer()
         player.game = this
         player.moveTo(Gdx.graphics.width/2f, Gdx.graphics.height/2f)
 
-        Gdx.input.inputProcessor = gameInputProcessor
+        Gdx.input.inputProcessor = inputProcessor
     }
 
     override fun render() {

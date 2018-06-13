@@ -1,4 +1,4 @@
-package com.aquarius314.escape.main.graphics
+package com.aquarius314.escape.main.engine.graphics
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Color

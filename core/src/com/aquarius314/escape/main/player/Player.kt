@@ -1,17 +1,16 @@
 package com.aquarius314.escape.main.player
 
 import com.aquarius314.escape.main.GdxGame
-import com.aquarius314.escape.main.graphics.Renderer
-import com.aquarius314.escape.main.logic.Active
-import com.aquarius314.escape.main.logic.GameObject
-import com.aquarius314.escape.main.logic.Movable
+import com.aquarius314.escape.main.engine.graphics.Renderer
+import com.aquarius314.escape.main.engine.logic.Active
+import com.aquarius314.escape.main.engine.logic.MeasurableProperty
+import com.aquarius314.escape.main.engine.logic.Movable
+import com.aquarius314.escape.main.weapon.Pistol
 import com.badlogic.gdx.graphics.Color
 
 class Player constructor(x: Float = 0f, y: Float = 0f) : Movable(x, y), Active {
 
-    private val maxBullets = 4f
-
-    var bullets = MeasurableProperty(0f, maxBullets)
+    var weapon = Pistol(this)
 
     var game: GdxGame? = null
     var controller = PlayerController(this)
@@ -22,6 +21,12 @@ class Player constructor(x: Float = 0f, y: Float = 0f) : Movable(x, y), Active {
 
     override fun actions() {
         controller.control()
+    }
+
+    fun tryShoot(x: Int, y: Int) {
+        if (weapon.tryShoot()) {
+            println("hehe")
+        }
     }
 
 }

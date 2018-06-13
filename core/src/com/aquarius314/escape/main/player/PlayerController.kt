@@ -1,6 +1,6 @@
 package com.aquarius314.escape.main.player
 
-import com.aquarius314.escape.main.ui.KeyCodes
+import com.aquarius314.escape.main.engine.ui.KeyCodes
 
 class PlayerController constructor(var player: Player){
 
@@ -13,16 +13,16 @@ class PlayerController constructor(var player: Player){
         player.xSpeed.value = 0f
         player.ySpeed.value = 0f
         val unitSpeed = 2f
-        if (player.game!!.gameInputProcessor.isKeyPressed(KeyCodes.A.value)) {
+        if (player.game!!.inputProcessor.isKeyPressed(KeyCodes.A.value)) {
             player.xSpeed.value = -unitSpeed
         }
-        if (player.game!!.gameInputProcessor.isKeyPressed(KeyCodes.D.value)) {
+        if (player.game!!.inputProcessor.isKeyPressed(KeyCodes.D.value)) {
             player.xSpeed.value = unitSpeed
         }
-        if (player.game!!.gameInputProcessor.isKeyPressed(KeyCodes.W.value)) {
+        if (player.game!!.inputProcessor.isKeyPressed(KeyCodes.W.value)) {
             player.ySpeed.value = unitSpeed
         }
-        if (player.game!!.gameInputProcessor.isKeyPressed(KeyCodes.S.value)) {
+        if (player.game!!.inputProcessor.isKeyPressed(KeyCodes.S.value)) {
             player.ySpeed.value = -unitSpeed
         }
         normalizeDiagonalSpeeds()

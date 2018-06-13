@@ -1,7 +1,7 @@
-package com.aquarius314.escape.main.logic
+package com.aquarius314.escape.main.engine.logic
 
-import com.aquarius314.escape.main.graphics.Displayable
-import com.aquarius314.escape.main.graphics.Renderer
+import com.aquarius314.escape.main.engine.graphics.Displayable
+import com.aquarius314.escape.main.engine.graphics.Renderer
 
 abstract class GameObject constructor(x: Float = 0f, y: Float = 0f) : Displayable {
 

@@ -1,6 +1,4 @@
-package com.aquarius314.escape.main.logic
-
-import com.aquarius314.escape.main.player.MeasurableProperty
+package com.aquarius314.escape.main.engine.logic
 
 abstract class Movable constructor(x: Float = 0f, y: Float = 0f) : GameObject(x, y) {
 

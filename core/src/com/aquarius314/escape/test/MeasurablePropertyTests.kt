@@ -1,6 +1,6 @@
 package com.aquarius314.escape.test
 
-import com.aquarius314.escape.main.player.MeasurableProperty
+import com.aquarius314.escape.main.engine.logic.MeasurableProperty
 import org.junit.Test
 
 class MeasurablePropertyTests {

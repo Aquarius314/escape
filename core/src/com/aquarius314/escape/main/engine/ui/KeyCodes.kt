@@ -1,4 +1,4 @@
-package com.aquarius314.escape.main.ui
+package com.aquarius314.escape.main.engine.ui
 
 enum class KeyCodes(val value: Int) {
     W(51),

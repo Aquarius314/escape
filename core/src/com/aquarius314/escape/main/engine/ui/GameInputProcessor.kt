@@ -1,11 +1,10 @@
-package com.aquarius314.escape.main.ui
+package com.aquarius314.escape.main.engine.ui
 
-import com.aquarius314.escape.main.GdxGame
 import com.badlogic.gdx.InputProcessor
 
-class GameInputProcessor(var game: GdxGame) : InputProcessor {
+open class GameInputProcessor : InputProcessor {
 
-    private val keyPressedMap: HashMap<Int, Boolean> = hashMapOf(
+    protected val keyPressedMap: HashMap<Int, Boolean> = hashMapOf(
             Pair(KeyCodes.W.value, false),
             Pair(KeyCodes.A.value, false),
             Pair(KeyCodes.S.value, false),
