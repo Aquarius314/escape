@@ -31,4 +31,6 @@ abstract class Weapon constructor(var owner: Player, capacity: Int, var reloadTi
 
     abstract fun playShootingSound()
 
+    abstract fun createBullet() : List<Bullet>
+
 }

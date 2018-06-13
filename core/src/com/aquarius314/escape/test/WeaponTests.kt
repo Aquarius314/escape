@@ -1,14 +1,14 @@
 package com.aquarius314.escape.test
 
 import com.aquarius314.escape.main.player.Player
-import com.aquarius314.escape.main.weapon.Pistol
+import com.aquarius314.escape.main.weapon.Bullet
 import com.aquarius314.escape.main.weapon.Weapon
-import org.junit.Before
 import org.junit.Test
 
 class WeaponTests {
 
     private class WeaponImplementation constructor(p: Player, c: Int, r: Int): Weapon(p, c, r) {
+        override fun createBullet(): List<Bullet> = listOf()
         override fun playShootingSound() {}
     }
 
