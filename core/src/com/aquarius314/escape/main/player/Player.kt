@@ -6,11 +6,13 @@ import com.aquarius314.escape.main.engine.logic.Active
 import com.aquarius314.escape.main.engine.logic.MeasurableProperty
 import com.aquarius314.escape.main.engine.logic.Movable
 import com.aquarius314.escape.main.weapon.Pistol
+import com.aquarius314.escape.main.weapon.Shotgun
 import com.badlogic.gdx.graphics.Color
 
 class Player constructor(x: Float = 0f, y: Float = 0f) : Movable(x, y), Active {
 
-    var weapon = Pistol(this)
+    var weaponLeft = Pistol(this)
+    var weaponRight = Shotgun(this)
 
     var game: GdxGame? = null
     var controller = PlayerController(this)
@@ -23,9 +25,15 @@ class Player constructor(x: Float = 0f, y: Float = 0f) : Movable(x, y), Active {
         controller.control()
     }
 
-    fun tryShoot(x: Int, y: Int) {
-        if (weapon.tryShoot()) {
-            println("hehe")
+    fun tryShoot(x: Int, y: Int, left: Boolean) {
+        if (left) {
+            if (weaponLeft.tryShoot()) {
+                println("pistol shot")
+            }
+        } else {
+            if (weaponRight.tryShoot()) {
+                println("shotgun shot")
+            }
         }
     }
 
